@@ -61,4 +61,4 @@ Founder & CEO — Team NAK | IBKR Trading Bots · Blockchain · AI Automation
 ---
 
 *Data updates every 60 seconds. Not financial advice.*
-<!-- updated: 2024-11-25-r01 -->
+<!-- updated: 2025-05-01-r01 -->
