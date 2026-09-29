@@ -20,10 +20,15 @@ export default function App() {
       const res = await fetch(COINGECKO_URL)
       if (!res.ok) throw new Error(`HTTP ${res.status}`)
       const data = await res.json()
+      if (!Array.isArray(data)) throw new Error('Unexpected response shape')
       setTokens(data)
       setLastUpdated(new Date())
     } catch (err) {
-      setError('Failed to load token data. CoinGecko may be rate-limiting. Please try again in a moment.')
+      setError(
+        err.message === 'HTTP 429'
+          ? 'CoinGecko rate limit reached. Please try again in a minute.'
+          : 'Failed to load token data. Please try again in a moment.'
+      )
     } finally {
       setLoading(false)
     }
